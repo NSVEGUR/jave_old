@@ -1,0 +1,45 @@
+[
+	{
+		"index": 1,
+		"timestamps": [[10, 55]],
+		"title": "Character 1",
+		"description": "description 1"
+	},
+	{
+		"index": 2,
+		"timestamps": [
+			[36, 57],
+			[91, 101],
+			[107, 220],
+			[222, 280]
+		],
+		"title": "Character 2",
+		"description": "description 2"
+	},
+	{
+		"index": 3,
+		"timestamps": [
+			[61, 69],
+			[80, 87],
+			[105, 106],
+			[174, 175],
+			[220, 221],
+			[248, 273]
+		],
+		"title": "Character 3",
+		"description": "description 3"
+	},
+	{
+		"index": 4,
+		"timestamps": [
+			[70, 79],
+			[80, 87],
+			[102, 104],
+			[173, 174],
+			[223, 224],
+			[252, 273]
+		],
+		"title": "Character 4",
+		"description": "description 4"
+	}
+]

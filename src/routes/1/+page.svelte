@@ -5,8 +5,8 @@
 	let playing = false;
 	let showVolume = false;
 	let fullScreen = false;
-	let currentTime: string;
-	let totalTime: string;
+	let currentTime = '0:00';
+	let totalTime = '0:00';
 
 	function updateTime() {
 		const video = document.getElementById('video') as HTMLVideoElement;
@@ -160,7 +160,7 @@
 				/>
 			</div>
 			<div>
-				{currentTime && totalTime ? `${currentTime} / ${totalTime}` : '0:00 / 0:00'}
+				{`${currentTime} / ${totalTime}`}
 			</div>
 		</div>
 	</div>

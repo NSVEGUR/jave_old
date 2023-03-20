@@ -13,8 +13,8 @@
 	let fullScreen = false;
 	let xRay = false;
 	let individual = false;
-	let currentTime: string;
-	let totalTime: string;
+	let currentTime = '0:00';
+	let totalTime = '0:00';
 	let characters: {
 		index: number;
 		timestamps: number[][];
@@ -215,7 +215,7 @@
 				/>
 			</div>
 			<div>
-				{currentTime && totalTime ? `${currentTime} / ${totalTime}` : '0:00 / 0:00'}
+				{`${currentTime} / ${totalTime}`}
 			</div>
 		</div>
 	</div>

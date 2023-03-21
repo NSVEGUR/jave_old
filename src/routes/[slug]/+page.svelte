@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import CharVideo from '$lib/4.mp4';
+	import { page } from '$app/stores';
+
+	const { slug } = $page.params;
 
 	let playing = false;
 	let showVolume = false;
@@ -23,6 +25,8 @@
 
 		currentTime = currentMinutes + ':' + currentSeconds;
 		totalTime = totalMinutes + ':' + totalSeconds;
+		if (isNaN(currentMinutes)) currentTime = '0:00';
+		if (isNaN(totalMinutes)) totalTime = '0:00';
 	}
 	function reset() {
 		const video = document.getElementById('video') as HTMLVideoElement;
@@ -82,7 +86,7 @@
 		id="video"
 		on:timeupdate={updateTime}
 	>
-		<source src={CharVideo} type="video/mp4" />
+		<source src="src/lib/{slug}.mp4" type="video/mp4" />
 		<track kind="captions" />
 	</video>
 	<div class="absolute inset-0">

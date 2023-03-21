@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
+	import videoUrl from '$lib/1.mp4';
 
 	const { slug } = $page.params;
 
@@ -73,7 +74,7 @@
 		else document.exitFullscreen();
 		fullScreen = !fullScreen;
 	}
-	onMount(() => {
+	onMount(async () => {
 		setTimeout(() => {
 			updateTime();
 		}, 500);
@@ -86,7 +87,7 @@
 		id="video"
 		on:timeupdate={updateTime}
 	>
-		<source src="src/lib/{slug}.mp4" type="video/mp4" />
+		<source src={videoUrl} type="video/mp4" />
 		<track kind="captions" />
 	</video>
 	<div class="absolute inset-0">

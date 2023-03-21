@@ -72,18 +72,6 @@
 	onMount(() => {
 		setTimeout(() => {
 			updateTime();
-			const video = document.getElementById('video') as HTMLVideoElement;
-			let playPromise = video.play();
-			if (playPromise !== undefined) {
-				playPromise
-					.then((_) => {
-						playing = true;
-					})
-					.catch((error) => {
-						playing = false;
-						console.log('Error in autoplay');
-					});
-			}
 		}, 500);
 	});
 </script>

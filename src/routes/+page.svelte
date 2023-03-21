@@ -12,6 +12,7 @@
 	let showVolume = false;
 	let fullScreen = false;
 	let xRay = false;
+	let individual = false;
 	let currentTime = '0:00';
 	let totalTime = '0:00';
 	let characters: {
@@ -36,8 +37,6 @@
 
 		currentTime = currentMinutes + ':' + currentSeconds;
 		totalTime = totalMinutes + ':' + totalSeconds;
-		if (isNaN(currentMinutes)) currentTime = '0:00';
-		if (isNaN(totalMinutes)) totalTime = '0:00';
 	}
 	function reset() {
 		const video = document.getElementById('video') as HTMLVideoElement;
@@ -142,6 +141,18 @@
 				{/if}</button
 			>
 		</div>
+		<div class="absolute top-5 right-32 text-lg">
+			<button
+				on:click={() => {
+					individual = !individual;
+				}}
+				>Individual {#if individual}
+					<i class="fas fa-angle-up" />
+				{:else}
+					<i class="fas fa-angle-down" />
+				{/if}</button
+			>
+		</div>
 		<div class="absolute top-5 right-10 flex gap-5">
 			<button
 				class="text-white text-opacity-80 hover:text-opacity-100"
@@ -211,6 +222,25 @@
 	{#if xRay && characters}
 		<div class="absolute top-12 left-10 w-1/3 flex flex-col gap-2">
 			{#each characters as character}
+				<div class="w-full h-32 rounded bg-black bg-opacity-40 flex">
+					<div class="w-1/4">
+						<img
+							class="w-full h-full object-cover"
+							src={characterImages[character.index - 1]}
+							alt={character.title}
+						/>
+					</div>
+					<div class="w-3/4 flex flex-col justify-center pl-2">
+						<h1 class=" font-bold">{character.title}</h1>
+						<p>{character.description}</p>
+					</div>
+				</div>
+			{/each}
+		</div>
+	{/if}
+	{#if individual}
+		<div class="absolute top-12 right-32 w-1/3 flex flex-col gap-2">
+			{#each characters_timestamps as character}
 				<a class="w-full h-32 rounded bg-black bg-opacity-40 flex" href="/{character.index}">
 					<div class="w-1/4">
 						<img
